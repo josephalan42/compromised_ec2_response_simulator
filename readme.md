@@ -3,6 +3,10 @@
 A security-focused automation tool that simulates incident response workflows for compromised EC2 instances using Python, Flask, and Boto3. Built during my internship at Experian, this project reflects my understanding of AWS security operations, automation, and risk mitigation.
 
 ---
+## Screenshots
+![alt text](https://github.com/josephalan42/compromised_ec2_response_simulator/blob/main/images/Dashboard.png)
+![alt_text](https://github.com/josephalan42/compromised_ec2_response_simulator/blob/main/images/List%20Running%20EC2%20Instances.png)
+![alt-text](https://github.com/josephalan42/compromised_ec2_response_simulator/blob/main/images/Incident%20Response%20Options.png)
 
 ## 📌 Key Features
 
