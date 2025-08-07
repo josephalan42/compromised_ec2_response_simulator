@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EC2 Incident Response</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: #ffffff;
+            padding: 40px;
+        }
+        h1 {
+            color: #ff5555;
+        }
+        .card {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #00ffff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #00cccc;
+        }
+        a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+        .flash {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .flash.success {
+            background-color: #006400;
+        }
+        .flash.error {
+            background-color: #8B0000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🚨 Incident Response Actions</h1>
+
+    <div class="card">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% if instance_id %}
+            <p>Selected Instance: <strong>{{ instance_id }}</strong></p>
+
+            <form method="POST">
+                <button name="action" value="Disassociate Public IP">Disassociate Public IP</button>
+                <button name="action" value="Detach from Load Balancer">Detach from Load Balancer</button>
+                <button name="action" value="Modify SG to Quarantine">Apply Quarantine Security Group</button>
+                <button name="action" value="Create Forensic AMI">Create Forensic AMI</button>
+                <button name="action" value="Move to Quarantine Subnet">Move to Quarantine Subnet</button>
+            </form>
+        {% else %}
+            <p>No EC2 instance selected.</p>
+        {% endif %}
+
+        <p><a href="{{ url_for('input.input_form') }}">🔙 Back to Instance Selection</a></p>
+    </div>
+
+</body>
+</html>

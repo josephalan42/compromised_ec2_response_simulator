@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compromised EC2 Response Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: #fff;
+            padding: 40px;
+        }
+        h1 {
+            color: #00ffff;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 15px 0;
+        }
+        a {
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🧪 Compromised EC2 Response Simulator</h1>
+
+    <ul>
+        <li><a href="{{ url_for('input.input_form') }}">List EC2 Instances</a></li>
+        <li><a href="{{ url_for('actions.instance_actions', instance_id='i-placeholder') }}">Simulate Response (example)</a></li>
+    </ul>
+
+</body>
+</html>
